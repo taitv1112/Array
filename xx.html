@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+  let so1 = +prompt("Nhap so thu nhat: ");
+  let so2 = +prompt("Nhập số thứ hai: ");
+  let so3 = +prompt("Nhập số thứ ba: ");
+  if(so1>so2){
+      if(so1>so3){
+          if(so2 > so3){
+              document.write("Số lớn thứ 2 là:"+so2)
+          }
+          else {
+              document.write("số lớn thứ 2 là"+ so3)
+          }
+      }else {
+          document.write("số lớn thứ 2 là"+ so1)
+      }
+  }else {
+      if(so2>so3){
+          if(so1>so3){
+              document.write("Số lớn thứ 2 là:"+so3)
+          }else {
+              document.write("Số lớn thứ 2 là:"+so1)
+          }
+      }else {
+          document.write("Số lớn thứ 2 là:"+so2)
+      }
+  }
+</script>
 </body>
 </html>
