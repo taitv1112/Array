@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soPhanTu = parseInt(prompt(" Nhập số phần tử mảng: "));
+    let intNumber = new Array(soPhanTu);
+    for(let i=0;i<intNumber.length;i++){
+        intNumber[i] = Math.round(Math.random()*5+1);
+    }
+    document.write(intNumber);
+    document.write("</br>");
+    document.write("</br>");
+    let V = parseInt(prompt(" Nhập giá trị số nguyên V: "))
+    flag = false;
+    let index=0;
+    for(let i=0;i<intNumber.length;i++){
+        if( V == intNumber[i]) {
+            index =i;
+            flag = true;
+            break;
+        }else {
+            flag = false;
+        }
+    }
+    if(flag){
+        document.write("V là giá trị của mảng:" +V);
+        const removed = intNumber.splice(index, 1);
+        document.write("</br>");
+        document.write("</br>");
+        document.write(intNumber);
+    }else {
+        document.write("V không là giá trị của mảng:");
+    }
+
+</script>
+</body>
+</html>

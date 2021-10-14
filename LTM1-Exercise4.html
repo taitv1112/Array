@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soPhanTu = parseInt(prompt(" Nhập số phần tử mảng: "));
+    let intNumber = new Array(soPhanTu);
+    for(let i=0;i<intNumber.length;i++){
+        intNumber[i] = Math.round(Math.random()*100+1);
+    }
+    document.write(intNumber);
+    document.write("</br>");
+    document.write("</br>");
+    let revIntNumber = intNumber.reverse();
+    document.write(revIntNumber);
+</script>
+</body>
+</html>

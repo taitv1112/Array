@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let soPhanTu = parseInt(prompt(" Nhập số phần tử mảng: "));
+    let intNumber = new Array(soPhanTu);
+    for(let i=0;i<intNumber.length;i++){
+        intNumber[i] = Math.round(Math.random()*100+1);
+    }
+    document.write(intNumber);
+    let count = 0;
+    for (let j = 0; j <intNumber.length;  j++){
+        if(intNumber[j] > 10){
+            count++;
+        }
+    }
+    document.write("</br>")
+    document.write("</br>")
+    document.write("Số phần tử trong mảng lớn hơn 10 là : " + count);
+
+    document.write("</br>")
+    document.write("</br>")
+    let maxValue = [];
+    let index = 0;
+    let sum = 0;
+    for (let a = 0; a <intNumber.length;a++){
+        if(maxValue < intNumber[a]){
+            maxValue= intNumber[a];
+            index = a;
+        }
+        sum+=intNumber[a];
+    }
+    let Average = 0;
+    Average = sum/soPhanTu;
+    document.write("Phần tử có giá trị lớn nhất trong mảng là: " + maxValue +" Nằm ở vị trí: " +index + " Giá trị trung bình của các phần tử trong mảng là: " +Average);
+
+</script>
+</body>
+</html>

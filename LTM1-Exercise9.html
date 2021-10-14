@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử, gọi là mảng a và b. -->
+<!--Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên. -->
+<!--Chương trình sẽ lưu các phần tử được nối từ hai mảng b và a vào mảng c. .-->
+<!--Hiển thị mảng c-->
+    <script>
+        let numberArrayA = parseInt(prompt(" Nhập số phần tử mảng a: "));
+        let numberArrayB = parseInt(prompt(" Nhập số phần tử mảng b: "));
+        let numberArrayC = parseInt(prompt(" Nhập số phần tử mảng c: "));
+        let intNumberArrayA = new Array(numberArrayA);
+        let intNumberArrayB = new Array(numberArrayB);
+        let intNumberArrayC = new Array(numberArrayC);
+        for(let i=0;i<intNumberArrayA.length;i++){
+            intNumberArrayA[i] = Math.round(Math.random()*100+1);
+        }
+        for(let i=0;i<intNumberArrayB.length;i++){
+            intNumberArrayB[i] = Math.round(Math.random()*100+1);
+        }
+        for(let i=0;i<intNumberArrayC.length;i++){
+            intNumberArrayC[i] = Math.round(Math.random()*100+1);
+        }
+        document.write("Phần tử mảng a là: "+ intNumberArrayA);
+        document.write("</br>");
+        document.write("</br>");
+        document.write("Phần tử mảng b là: "+ intNumberArrayB);
+        document.write("</br>");
+        document.write("</br>");
+        document.write("Phần tử mảng c là: "+ intNumberArrayC);
+        document.write("</br>");
+        document.write("</br>");
+    let c = intNumberArrayC.concat(intNumberArrayA,intNumberArrayB)
+        for (let i =0 ; i < c.length ;i++){
+            document.write(c[i] + ", ")
+        }
+    </script>
+</body>
+</html>

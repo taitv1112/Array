@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết chương trình đếm số nguyên âm trong một chuỗi</title>
+</head>
+<body>
+<script>
+    let soPhanTu = parseInt(prompt(" Nhập số phần tử mảng: "));
+    let intNumber = new Array(soPhanTu);
+    for(let i=0;i<intNumber.length;i++){
+        intNumber[i] = Math.round(Math.random()*50+(-20));
+    }
+    document.write(intNumber);
+    document.write("</br>");
+    document.write("</br>");
+    let count = 0 ;
+    for(let i=0;i<intNumber.length;i++){
+        if(0<intNumber[i]){
+            count++;
+        }
+    }
+    document.write("Số lượng số nguyên âm là: " + count);
+</script>
+</body>
+</html>

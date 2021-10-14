@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sắp xếp mảng theo thứ tự giảm dần</title>
+</head>
+<body>
+    <script>
+        let soPhanTu = parseInt(prompt(" Nhập số phần tử mảng: "));
+        let intNumber = new Array(soPhanTu);
+        for(let i=0;i<intNumber.length;i++){
+            intNumber[i] = Math.round(Math.random()*100+1);
+        }
+        document.write(intNumber +'<br>');
+        document.write("</br>");
+        document.write("</br>");
+        let temp = []
+        for(let i =0; i<intNumber.length; i++){
+            for (let j=0 ; j<intNumber.length;j++){
+                if(intNumber[i]<intNumber[j]){
+                    temp = intNumber[j];
+                    intNumber[j] = intNumber[i]
+                    intNumber [i] = temp
+                }
+            }
+        }
+        for (let i =0 ; i < intNumber.length ;i++){
+            document.write(intNumber[i] + " ")
+        }
+    </script>
+</body>
+</html>
