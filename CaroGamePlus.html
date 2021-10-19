@@ -1,98 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 <h3>Caro Game Simple</h3>
 <div id="game"></div>
-<!--${i} cho phép bạn lồng một biến bên trong một chuỗi mà không cần thực hiện nối bằng toán tử + -->
+<!--${i} lồng 1 biến vào chuỗi   -->
 <script>
-  let gameBoard = "<table style='border: 1px solid black'>"
-  let board = new Array (  ["*", "*", "*" ] ,
-          [ "*", "*", "*" ] ,
-          [ "*", "*", "*" ] )
+    let gameBoard = "<table style='border: 1px solid black'>"
+    let board = new Array(["*", "*", "*"],
+        ["*", "*", "*"],
+        ["*", "*", "*"])
 
-  let turn =0 ;
-  for (let i=0;i<3;i++){
-    gameBoard += "<tr>"
-    for(let j = 0; j < 3; j++){
-      gameBoard += `<td style="border: 1px solid black; padding: 30px " id='${i}${j}' onclick="play(${i},${j})">${board[i][j]}</td>`;
+    let turn = 0;
+    for (let i = 0; i < 3; i++) {
+        gameBoard += "<tr>"
+        for (let j = 0; j < 3; j++) {
+            gameBoard += `<td style="border: 1px solid black; padding: 30px " id='${i}${j}' onclick="play(${i},${j})"></td>`;
+        }
+        gameBoard += "</tr>"
     }
-    gameBoard += "</tr>"
-  }
-  gameBoard += "</table>"
-  game.innerHTML = gameBoard;
-  // function checkWin(i,j) {
-  //     for(let i=0;i<board.length;i++){
-  //       for (let j=0;j < board.length ; j++){
-  //       if (board[i][j] !== "*" && board[i][j] === board[i][j+1] && board[i][j] === board[i][j+2]){
-  //         return true;
-  //       }
-  //       else if ((board[i][j] !== "*") && (board[i][j] === board[i+1][j]) && (board[i][j] === board[i+2][j])) {
-  //         return true;
-  //       }
-  //       else if (board[i][j] !== "*" && board[i][j] === board[i+1][j+1]&& board[i][j] === board[i+2][j+2]){
-  //         return true;
-  //       }
-  //       else if (board[i][j] !== "*" && board[i][j] === board[i-1][j+1] && board[i][j] === board[i-2][j+2]){
-  //         return true;
-  //       }
-  //
-  //     }
-  //   }
-  // }
-  function checkWinColumn() {
-    if (board[0][0] !== "*" && board[0][0] === board[1][0] && board[0][0] === board[2][0]) {
-      return true;
-    } else if (board[0][1] !== "*" && board[0][1] === board[1][1] && board[0][1] === board[2][1]) {
-      return true
-    } else if (board[0][2] !== "*" && board[0][2] === board[1][2] && board[0][2] === board[2][2]) {
-      return true
-    } else {
-      return false;
+    gameBoard += "</table>"
+    document.getElementById("game").innerHTML = gameBoard;
+    // function checkWin(i,j) {
+    //     for(let i=0;i<board.length;i++){
+    //       for (let j=0;j < board.length ; j++){
+    //       if (board[i][j] !== "*" && board[i][j] === board[i][j+1] && board[i][j] === board[i][j+2]){
+    //         return true;
+    //       }
+    //       else if ((board[i][j] !== "*") && (board[i][j] === board[i+1][j]) && (board[i][j] === board[i+2][j])) {
+    //         return true;
+    //       }
+    //       else if (board[i][j] !== "*" && board[i][j] === board[i+1][j+1]&& board[i][j] === board[i+2][j+2]){
+    //         return true;
+    //       }
+    //       else if (board[i][j] !== "*" && board[i][j] === board[i-1][j+1] && board[i][j] === board[i-2][j+2]){
+    //         return true;
+    //       }
+    //
+    //     }
+    //   }
+    // }
+    function checkWinColumn() {
+        if (board[0][0] !== "*" && board[0][0] === board[1][0] && board[0][0] === board[2][0]) {
+            return true;
+        } else if (board[0][1] !== "*" && board[0][1] === board[1][1] && board[0][1] === board[2][1]) {
+            return true
+        } else if (board[0][2] !== "*" && board[0][2] === board[1][2] && board[0][2] === board[2][2]) {
+            return true
+        } else {
+            return false;
+        }
     }
-  }
-  function checkWinRow() {
-    if (board[0][0] !== "*" && board[0][0] === board[0][1] && board[0][0] === board[0][2]) {
-      return true;
-    } else if (board[1][0] !== "*" && board[1][1] === board[1][0] && board[1][0] === board[1][2]) {
-      return true
-    } else if (board[2][0] !== "*" && board[2][0] === board[2][1] && board[2][0] === board[2][2]) {
-      return true
-    } else {
-      return false;
+
+    function checkWinRow() {
+        if (board[0][0] !== "*" && board[0][0] === board[0][1] && board[0][0] === board[0][2]) {
+            return true;
+        } else if (board[1][0] !== "*" && board[1][1] === board[1][0] && board[1][0] === board[1][2]) {
+            return true
+        } else if (board[2][0] !== "*" && board[2][0] === board[2][1] && board[2][0] === board[2][2]) {
+            return true
+        } else {
+            return false;
+        }
     }
-  }
-  function checkWinSub() {
-    if (board[2][0] !== "*" && board[2][0] === board[1][1] && board[2][0] === board[0][2] || board[0][0] !== "*" && board[0][0] === board[1][1] && board[0][0] === board[2][2]) {
-      return true;
+
+    function checkWinSub() {
+        if (board[2][0] !== "*" && board[2][0] === board[1][1] && board[2][0] === board[0][2] || board[0][0] !== "*" && board[0][0] === board[1][1] && board[0][0] === board[2][2]) {
+            return true;
+        }
+        return false;
     }
-    return false;
-  }
-  function play(i,j){
-    let id = i + "" + j
-    let x = "";
-    if(turn%2 ===0){
-      if(board[i][j] == "*"){
-        x="X"
-        board[i][j] = x
-        document.getElementById(id).innerHTML = x;
-      }
-    }else {
-      if(board[i][j] == "*"){
-        x="O"
-        board[i][j] = x
-        document.getElementById(id).innerHTML = x;
-      }
+
+    function play(i, j) {
+        let id = i + "" + j
+        let x = "";
+        if (turn % 2 === 0) {
+            if (board[i][j] === "*") {
+                x = "X"
+                board[i][j] = x
+                document.getElementById(id).innerHTML = x;
+            }
+        } else if (board[i][j] === "*") {
+            x = "O"
+            board[i][j] = x
+            document.getElementById(id).innerHTML = x;
+        } else { if(turn === 9){
+            alert("Draw");
+        }
+
+        }
+        let isWin = checkWinColumn() || checkWinRow() || checkWinSub();
+        if (isWin) {
+            alert(x + " Win ")
+        }
+        turn++;
     }
-    let isWin = checkWinColumn() || checkWinRow()  || checkWinSub();
-    if (isWin) {
-      alert(x + " Win ")
-    }
-    turn++;
-  }
 
 </script>
 </body>
